@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfbe9">
+  <meta name="description" content="SOLARA AI — crypto market intelligence, charting, and educational strategy backtesting.">
+  <title>SOLARA AI — Illuminate the Market</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lightweight-charts@4.2.2/dist/lightweight-charts.standalone.production.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+  <canvas id="space-canvas" aria-hidden="true"></canvas>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="SOLARA AI home"><span class="brand-mark">✳</span><span>SOLARA<span class="brand-ai"> AI</span><small>BY ARIO WEB3</small></span></a>
+    <div class="top-status"><span class="live-dot"></span><span id="connection-label">MARKET DATA</span><span class="status-divider"></span><span>INTELLIGENCE IN MOTION</span></div>
+    <a class="github-link" href="https://github.com/arioweb3/solara-ai" target="_blank" rel="noreferrer">GITHUB ↗</a>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> MARKET INTELLIGENCE PLATFORM</p>
+        <h1>Illuminate the<br><em>market.</em></h1>
+        <p class="hero-sub">Real-time crypto context. Structured technical analysis. Strategy testing without risking real capital.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#terminal">Explore terminal <span>↘</span></a><span class="micro-note">DATA-DRIVEN · EDUCATIONAL · NON-CUSTODIAL</span></div>
+      </div>
+      <div class="orb-panel"><div class="orb-glow"></div><div class="orb-ring ring-one"></div><div class="orb-ring ring-two"></div><div class="orb-ring ring-three"></div><div class="orb-core"><span>✳</span></div><div class="orb-label">SOLARA CORE <b>ACTIVE</b></div><div class="orb-coord">AI / MARKET SIGNAL PROCESSING</div></div>
+    </section>
+
+    <section class="market-strip" aria-label="Market overview">
+      <div class="strip-label">MARKET PULSE <span>↗</span></div>
+      <div class="ticker"><span>BTC</span><b id="btc-price">Loading…</b><small id="btc-change">—</small></div>
+      <div class="ticker"><span>ETH</span><b id="eth-price">Loading…</b><small id="eth-change">—</small></div>
+      <div class="ticker"><span>SOL</span><b id="sol-price">Loading…</b><small id="sol-change">—</small></div>
+      <div class="ticker"><span>GLOBAL DATA</span><b id="data-time">Connecting</b><small>COINGECKO</small></div>
+    </section>
+
+    <section id="terminal" class="workspace">
+      <div class="section-heading"><div><p class="eyebrow">01 / MARKET TERMINAL</p><h2>Read the market.</h2></div><div class="data-badge"><span class="live-dot"></span> PUBLIC MARKET DATA</div></div>
+      <div class="terminal-grid">
+        <article class="panel chart-panel">
+          <div class="panel-head chart-head">
+            <div class="asset-select"><div class="coin-icon" id="coin-icon">₿</div><div><h3 id="asset-name">Bitcoin <span id="asset-symbol">BTC</span></h3><small id="asset-subtitle">BTC / USD · Spot market reference</small></div></div>
+            <div class="chart-controls"><select id="asset-select" aria-label="Choose asset"><option value="bitcoin">Bitcoin · BTC</option><option value="ethereum">Ethereum · ETH</option><option value="solana">Solana · SOL</option><option value="binancecoin">BNB · BNB</option><option value="ripple">XRP · XRP</option><option value="dogecoin">Dogecoin · DOGE</option></select><select id="range-select" aria-label="Chart range"><option value="1">24H</option><option value="7" selected>7D</option><option value="30">30D</option><option value="90">90D</option></select></div>
+          </div>
+          <div class="price-line"><strong id="main-price">—</strong><span id="main-change">—</span><span class="price-caption">USD · LAST AVAILABLE</span></div>
+          <div id="chart" class="chart-area"><div class="chart-loading">Loading market history…</div></div>
+          <div class="chart-legend"><span><i class="legend-candle"></i> OHLC CANDLES</span><span><i class="legend-volume"></i> VOLUME</span><span><i class="legend-line"></i> SMA 20</span></div>
+          <p class="chart-note">Market data may be delayed, rate-limited, or unavailable. Volume is shown only when supplied by the source.</p>
+        </article>
+        <aside class="panel analysis-panel">
+          <div class="panel-head"><div><p class="eyebrow">SIGNAL ENGINE</p><h3>Technical snapshot</h3></div><span class="mini-icon">✳</span></div>
+          <div class="signal-box"><span class="signal-label">RULE-BASED MOMENTUM</span><strong id="signal-state">Calculating…</strong><p id="signal-summary">Waiting for historical candles.</p></div>
+          <div class="metric-row"><span>RSI (14)</span><strong id="rsi-value">—</strong><span class="metric-tag" id="rsi-tag">—</span></div>
+          <div class="metric-row"><span>MACD (12, 26, 9)</span><strong id="macd-value">—</strong><span class="metric-tag" id="macd-tag">—</span></div>
+          <div class="metric-row"><span>SMA (20)</span><strong id="sma-value">—</strong><span class="metric-tag" id="sma-tag">—</span></div>
+          <div class="metric-row"><span>Volatility (20)</span><strong id="vol-value">—</strong><span class="metric-tag">EST.</span></div>
+          <div class="levels"><div><span>NEAREST SUPPORT</span><b id="support-value">—</b></div><div><span>NEAREST RESISTANCE</span><b id="resistance-value">—</b></div></div>
+          <div class="risk-note"><span>ⓘ</span><p>Signals are descriptive indicators, not forecasts or personalized financial advice.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="lower-grid">
+      <article class="panel backtest-panel">
+        <div class="panel-head"><div><p class="eyebrow">02 / STRATEGY LAB</p><h3>Test a hypothesis.</h3></div><span class="mini-icon">↗</span></div>
+        <p class="panel-intro">Run an educational historical simulation on the candles currently loaded. Results exclude taxes and may not reflect live execution.</p>
+        <div class="form-grid"><label>Strategy<select id="strategy-select"><option value="sma">SMA crossover (10 / 30)</option><option value="rsi">RSI mean reversion (30 / 70)</option><option value="hold">Buy & hold benchmark</option></select></label><label>Starting virtual balance<input id="starting-balance" type="number" min="100" max="10000000" step="100" value="10000"></label><label>Trading fee (%)<input id="fee-input" type="number" min="0" max="2" step="0.01" value="0.1"></label><label>Slippage (%)<input id="slippage-input" type="number" min="0" max="2" step="0.01" value="0.05"></label></div>
+        <button class="button button-dark full-button" id="run-backtest">Run backtest <span>→</span></button>
+        <div id="backtest-results" class="backtest-results"><div class="result-empty">Choose a strategy and run a simulation.</div></div>
+      </article>
+      <article class="panel paper-panel">
+        <div class="panel-head"><div><p class="eyebrow">03 / PAPER DESK</p><h3>Practice, not capital.</h3></div><span class="paper-badge">SIMULATION</span></div>
+        <p class="panel-intro">Virtual portfolio only. No exchange connection, wallet signing, deposits, or real orders.</p>
+        <div class="balance-card"><span>VIRTUAL EQUITY</span><strong id="paper-equity">$10,000.00</strong><small id="paper-pnl">+$0.00 unrealized/realized P&L</small></div>
+        <div class="form-grid paper-form"><label>Side<select id="paper-side"><option value="buy">Buy / long</option><option value="sell">Sell / reduce position</option></select></label><label>Amount in USD<input id="paper-amount" type="number" min="1" max="100000" step="1" value="250"></label></div>
+        <button class="button button-lime full-button" id="paper-submit">Place virtual order <span>↗</span></button>
+        <div id="paper-message" class="paper-message" role="status"></div>
+        <div class="positions-head"><span>OPEN VIRTUAL POSITIONS</span><button id="reset-paper" type="button">RESET DEMO</button></div>
+        <div id="paper-positions" class="positions-list"><p class="muted">No open positions.</p></div>
+      </article>
+    </section>
+
+    <section class="lower-grid assistant-grid">
+      <article class="panel ai-panel">
+        <div class="panel-head"><div><p class="eyebrow">04 / SOLARA ASSISTANT</p><h3>Ask for context.</h3></div><span class="mini-icon">✳</span></div>
+        <p class="panel-intro">Connect a private AI endpoint to enable model-generated explanations. Until configured, the built-in rules assistant can explain the current technical snapshot.</p>
+        <div class="ai-mode"><span class="live-dot" id="ai-dot"></span><span id="ai-mode-label">RULES MODE · NO MODEL CONNECTED</span></div>
+        <div id="chat-log" class="chat-log" aria-live="polite"><div class="chat-bubble assistant-bubble">I can explain the indicators, support/resistance method, and backtest assumptions. This is educational market information, not a price prediction.</div></div>
+        <form id="chat-form" class="chat-form"><input id="chat-input" maxlength="700" placeholder="Ask about RSI, MACD, risk…" autocomplete="off" aria-label="Ask SOLARA"><button type="submit" aria-label="Send message">↑</button></form>
+        <small class="privacy-note">For model mode, deploy the included Worker and set AI_API_KEY as a server-side secret. Never paste API keys into this page.</small>
+      </article>
+      <article class="panel levels-panel">
+        <div class="panel-head"><div><p class="eyebrow">05 / STRUCTURE MAP</p><h3>Support & resistance.</h3></div><span class="mini-icon">⌁</span></div>
+        <p class="panel-intro">Automatically estimated from recent swing pivots and clustered price levels in the loaded OHLC history.</p>
+        <div class="level-card"><span>PRICE REFERENCE</span><strong id="level-current">—</strong></div>
+        <div id="levels-list" class="levels-list"><p class="muted">Loading pivot levels…</p></div>
+        <div class="risk-note"><span>ⓘ</span><p>Pivot levels are retrospective estimates. They can fail and are not guaranteed support or resistance.</p></div>
+      </article>
+    </section>
+
+    <footer class="footer"><div class="brand footer-brand"><span class="brand-mark">✳</span><span>SOLARA<span class="brand-ai"> AI</span><small>BY ARIO WEB3</small></span></div><p>ILLUMINATE THE MARKET. INTELLIGENCE IN MOTION.</p><span>MARKET DATA VIA COINGECKO · CHARTS VIA LIGHTWEIGHT CHARTS</span><p class="footer-disclaimer">Educational software only. No financial advice, no live trading, and no guarantee of results.</p></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
